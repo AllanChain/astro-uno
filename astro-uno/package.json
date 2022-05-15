@@ -1,0 +1,24 @@
+{
+  "name": "astro-uno",
+  "version": "1.0.0",
+  "description": "",
+  "exports": {
+    ".": "./dist/index.js",
+    "./client": "./src/client.ts",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "peerDependencies": {
+    "astro": "^1.0.0-beta.27",
+    "unocss": "*"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "unocss": "^0.33.4",
+    "vite": "^2.9.9"
+  }
+}

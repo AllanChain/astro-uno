@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "lib": ["esnext", "DOM"],
+    "module": "es2020",
+    "types": ["vite/client"]
+  },
+  "include": ["src/client.ts"],
+}
