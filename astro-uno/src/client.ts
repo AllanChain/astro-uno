@@ -12,6 +12,6 @@ import.meta.hot.on('vite:beforeUpdate', (event) => {
   const unoUpdate = event.updates.find(({ path }) => path.includes('__uno.css'))
   console.log(unoUpdate)
   if (unoUpdate !== undefined) {
-    setTimeout(() => reloadCSS(unoUpdate.timestamp.toString()), 50)
+    reloadCSS(unoUpdate.timestamp.toString())
   }
 })

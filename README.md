@@ -24,5 +24,5 @@ This solution made some hack to let UnoCSS properly invalidate the css module, a
 
 But there are still some drawbacks:
 - UnoCSS is not designed to work as a CSS file. It's designed to works as a JS module.
-- Firefox doesn't refetch the CSS after the CSS is reset to original `/__uno.css` but Chrome does. This will cause style modification lost after saving `.astro` file without updating CSS classes.
-- There are some flashes since I have to replace CSS url after HTML replacement, thus resulting a time gap where new styles are not applied. This flash has a different cause from [astro#3370](https://github.com/withastro/astro/issues/3370).
+- Firefox doesn't refetch the CSS after the CSS is reset to original `/__uno.css` (but Chrome does). This will cause style modification lost after saving `.astro` file without updating CSS classes in Firefox.
+- There are some flashes. Haven't figure out yet but seems to have a different cause from [astro#3370](https://github.com/withastro/astro/issues/3370).
