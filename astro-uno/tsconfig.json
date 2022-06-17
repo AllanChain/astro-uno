@@ -4,11 +4,11 @@
     "moduleResolution": "node",
     "module": "commonjs",
     "skipLibCheck": true,
+    "declaration": true,
     "outDir": "dist",
   },
   "files": ["src/index.ts"],
   "references": [
-    // {"path": "tsconfig.integration.json"},
     {"path": "tsconfig.client.json"}
   ]
 }

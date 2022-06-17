@@ -4,21 +4,22 @@
   "description": "",
   "exports": {
     ".": "./dist/index.js",
-    "./client": "./src/client.ts",
     "./package.json": "./package.json"
   },
+  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "watch": "tsc --watch"
   },
   "peerDependencies": {
-    "astro": "^1.0.0-beta.27",
+    "astro": "^1.0.0-beta.42",
     "unocss": "*"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "unocss": "0.33.2",
+    "unocss": "0.39.0",
     "vite": "^2.9.9"
   }
 }

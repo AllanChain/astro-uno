@@ -1,6 +1,7 @@
 {
   "name": "root",
   "version": "1.0.0",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -8,7 +9,7 @@
     "@types/node": "^17.0.32",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.23.0",
-    "astro": "^1.0.0-beta.27",
+    "astro": "^1.0.0-beta.42",
     "eslint": "^8.14.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-config-standard-jsx": "^11.0.0",
