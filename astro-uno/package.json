@@ -1,7 +1,21 @@
 {
   "name": "astro-uno",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "Astro UnoCSS Integration",
+  "author": "Allan Chain",
+  "license": "MIT",
+  "keywords": [
+    "astro",
+    "unocss"
+  ],
+  "homepage": "https://github.com/AllanChain/astro-uno",
+  "bugs": {
+    "url": "https://github.com/AllanChain/astro-uno/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AllanChain/astro-uno"
+  },
   "exports": {
     ".": "./dist/index.js",
     "./package.json": "./package.json"
@@ -15,9 +29,6 @@
     "astro": "^1.0.0-beta.42",
     "unocss": "*"
   },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
   "devDependencies": {
     "unocss": "0.39.0",
     "vite": "^2.9.9"
