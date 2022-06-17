@@ -1,28 +1,47 @@
-# Astro UnoCSS integration experiment
+# Astro UnoCSS Integration
 
-You need to make UnoCSS correctly invalidates CSS modules by modifying `node_modules/.pnpm/@unocss+vite@0.33.2_vite@2.9.9/node_modules/@unocss/vite/dist/index.cjs` (ugly by quick)
 
-from
+## Usage
 
+1. Install this package
+```
+npm install --save-dev astro-uno
+```
+2. Add to the integrations in `astro.config.mjs`
 ```js
-const mod = server.moduleGraph.getModuleById(id);
+export default defineConfig({
+  integrations: [
+    uno({
+      presets: [presetUno()]
+    })
+  ]
+}
+```
+3. Change the scripts to allow experimental integrations
+```json
+{
+  "scripts": {
+    "dev": "astro dev --experimental-integrations",
+    "start": "astro dev --experimental-integrations",
+    "build": "astro build --experimental-integrations",
+  }
+}
+```
+4. Import UnoCSS in your files
+```js
+import 'unocss-hmr-fix'
 ```
 
-to 
+See `examples/` for detail.
 
-```js
-const mod = server.moduleGraph.getModuleById(`${id}?direct`);
-```
+## What it does
 
-Then in `example`, run `pnpm dev`.
+1. Creates an alias of `uno.css` to avoid HMR issues.
 
-## How it works
+  `unocss-hmr-fix` is just an alias of `uno.css`. But the renaming fixes some HMR issues, since Astro treats everything ends with '.css' as a normal CSS file.
 
-It's hard to make it work properly without the ability to preserve injected element between `.astro` HMR.
+2. Force UnoCSS to run at the SSR phase.
 
-This solution made some hack to let UnoCSS properly invalidate the css module, and update css url timestamp via injectScript.
-
-But there are still some drawbacks:
-- UnoCSS is not designed to work as a CSS file. It's designed to works as a JS module.
-- Firefox doesn't refetch the CSS after the CSS is reset to original `/__uno.css` (but Chrome does). This will cause style modification lost after saving `.astro` file without updating CSS classes in Firefox.
-- There are some flashes. Haven't figure out yet but seems to have a different cause from [astro#3370](https://github.com/withastro/astro/issues/3370).
+  UnoCSS skips running when in the SSR mode, because it assumes that there is another client build.
+  But that's not true for Astro, where the client build doesn't include all the sources and the styles are generated in the SSR phase.
+  So we need to force UnoCSS to run at the SSR phase.
