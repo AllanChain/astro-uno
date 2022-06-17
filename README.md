@@ -3,9 +3,9 @@
 
 ## Usage
 
-1. Install this package
-```
-npm install --save-dev astro-uno
+1. Install this package and UnoCSS
+```shell
+npm install --save-dev astro-uno unocss
 ```
 2. Add to the integrations in `astro.config.mjs`
 ```js
