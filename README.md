@@ -9,6 +9,9 @@ npm install --save-dev astro-uno unocss
 ```
 2. Add to the integrations in `astro.config.mjs`
 ```js
+import uno from 'astro-uno'
+import { presetUno } from 'unocss'
+
 export default defineConfig({
   integrations: [
     uno({
@@ -27,7 +30,7 @@ export default defineConfig({
   }
 }
 ```
-4. Import UnoCSS in your files
+4. Import UnoCSS in your `.astro` files
 ```js
 import 'unocss-hmr-fix'
 ```
