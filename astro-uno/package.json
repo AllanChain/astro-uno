@@ -1,6 +1,6 @@
 {
   "name": "astro-uno",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Astro UnoCSS Integration",
   "contributors": [
     "Allan Chain <allanchain@pku.edu.cn>"
