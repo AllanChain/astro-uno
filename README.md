@@ -36,11 +36,11 @@ See `examples/` for detail.
 
 ## What it does
 
-1. Creates an alias of `uno.css` to avoid HMR issues.
+- Creates an alias of `uno.css` to avoid HMR issues.
 
   `unocss-hmr-fix` is just an alias of `uno.css`. But the renaming fixes some HMR issues, since Astro treats everything ends with '.css' as a normal CSS file.
 
-2. Force UnoCSS to run at the SSR phase.
+- Force UnoCSS to run at the SSR phase.
 
   UnoCSS skips running when in the SSR mode, because it assumes that there is another client build.
   But that's not true for Astro, where the client build doesn't include all the sources and the styles are generated in the SSR phase.
