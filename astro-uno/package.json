@@ -23,7 +23,14 @@
     "./package.json": "./package.json"
   },
   "types": "dist/index.d.ts",
+  "files": [
+    "dist/index.js",
+    "dist/index.d.ts"
+  ],
   "scripts": {
+    "prepare": "tsc",
+    "prepack": "cp ../README.md ../LICENSE .",
+    "postpack": "rm README.md LICENSE",
     "build": "tsc",
     "watch": "tsc --watch"
   },
