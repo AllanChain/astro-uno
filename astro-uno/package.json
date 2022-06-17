@@ -1,8 +1,10 @@
 {
   "name": "astro-uno",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "Astro UnoCSS Integration",
-  "author": "Allan Chain",
+  "contributors": [
+    "Allan Chain <allanchain@pku.edu.cn>"
+  ],
   "license": "MIT",
   "keywords": [
     "astro",
