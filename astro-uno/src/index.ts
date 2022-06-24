@@ -11,7 +11,9 @@ export = function UnoIntegration (options: VitePluginConfig): AstroIntegration {
         const unocssPlugins = Unocss(options)
         unocssPlugins.find(
           plugin => plugin.name === 'unocss:global:build:generate'
-        ).apply = 'build'
+        ).apply = (options, { command }) => {
+          return command === 'build' && !!options.build?.ssr
+        }
 
         updateConfig({
           vite: {
