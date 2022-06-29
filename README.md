@@ -48,3 +48,12 @@ See `examples/` for detail.
   UnoCSS skips running when in the SSR mode, because it assumes that there is another client build.
   But that's not true for Astro, where the client build doesn't include all the sources and the styles are generated in the SSR phase.
   So we need to force UnoCSS to run at the SSR phase.
+
+- Fix regular expression matching for attributify mode.
+
+  Astro pre-processes the `.astro` files and transform them into something like:
+  ```js
+  return $$render`<img${$$addAttribute(src, "src")} w-full>`;
+  ```
+  UnoCSS expected a space after `<img` but Astro gives `$$addAttribute` part instead, making attributify mode not working well.
+  Here we pass modified code with an extra space to UnoCSS for extracting the tokens.
