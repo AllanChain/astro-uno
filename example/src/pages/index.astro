@@ -1,5 +1,7 @@
 ---
 import 'unocss-hmr-fix'
+
+const src = 'https://astro.build/assets/press/full-logo-dark.png'
 ---
 <html lang="en">
 	<head>
@@ -9,5 +11,6 @@ import 'unocss-hmr-fix'
 	</head>
 	<body class="bg-gray-900">
 		<h1 class="text-blue-500 text-right">Astro</h1>
+		<img src={src} w-full />
 	</body>
 </html>
