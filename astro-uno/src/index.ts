@@ -17,7 +17,7 @@ export = function UnoIntegration (options: VitePluginConfig): AstroIntegration {
           const extract = attributifyExtractor.extract
           attributifyExtractor.extract = ({ code, original }) => extract({
             // Adding a space here, otherwise UnoCSS doesn't recognize the tag
-            code: code.replace(/(<\w+)(\$\{\$\$addAttribute)/, '$1 $2'),
+            code: code.replace(/(<\w+)(\$\{\$\$addAttribute)/g, '$1 $2'),
             original
           })
         }
