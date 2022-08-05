@@ -7,7 +7,8 @@ export = function UnoIntegration (options: VitePluginConfig): AstroIntegration {
   return {
     name: 'astro-uno',
     hooks: {
-      'astro:config:setup': ({ updateConfig }) => {
+      'astro:config:setup': ({ updateConfig, injectScript }) => {
+        // Fixing attributify preset
         const attributifyPreset = options.presets.find(preset =>
           !Array.isArray(preset) && preset.name === '@unocss/preset-attributify'
         )
@@ -23,11 +24,14 @@ export = function UnoIntegration (options: VitePluginConfig): AstroIntegration {
         }
 
         const unocssPlugins = Unocss(options)
+        // Enforce build in SSR
         unocssPlugins.find(
           plugin => plugin.name === 'unocss:global:build:generate'
         ).apply = (options, { command }) => {
           return command === 'build' && !!options.build?.ssr
         }
+
+        // Apply the plugin and alias
         updateConfig({
           vite: {
             resolve: {
@@ -40,6 +44,9 @@ export = function UnoIntegration (options: VitePluginConfig): AstroIntegration {
             ]
           }
         })
+
+        // Auto import UnoCSS
+        injectScript('page-ssr', "import 'unocss-hmr-fix';")
       }
     }
   }

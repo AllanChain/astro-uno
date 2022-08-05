@@ -30,16 +30,12 @@ export default defineConfig({
   }
 }
 ```
-4. Import UnoCSS in your `.astro` files
-```js
-import 'unocss-hmr-fix'
-```
 
 See `examples/` for detail.
 
 ## What it does
 
-- Creates an alias of `uno.css` to avoid HMR issues.
+- Creates an alias of `uno.css` and auto import it.
 
   `unocss-hmr-fix` is just an alias of `uno.css`. But the renaming fixes some HMR issues, since Astro treats everything ends with '.css' as a normal CSS file.
 
