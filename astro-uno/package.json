@@ -8,6 +8,8 @@
   "license": "MIT",
   "keywords": [
     "astro",
+    "astro-component",
+    "css",
     "unocss"
   ],
   "homepage": "https://github.com/AllanChain/astro-uno",
