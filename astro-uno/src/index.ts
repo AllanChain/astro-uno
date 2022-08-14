@@ -3,7 +3,17 @@ import type { AstroIntegration } from 'astro'
 import Unocss from 'unocss/vite'
 import type { VitePluginConfig } from 'unocss/vite'
 
-export = function UnoIntegration (options: VitePluginConfig): AstroIntegration {
+interface UnoIntegrationConfig extends VitePluginConfig {
+  astro?: {
+    /**
+     *  Whether to auto import UnoCSS
+     *  @default true
+     */
+    autoImport?: boolean
+  }
+}
+
+export = function UnoIntegration (options: UnoIntegrationConfig): AstroIntegration {
   return {
     name: 'astro-uno',
     hooks: {
@@ -45,8 +55,10 @@ export = function UnoIntegration (options: VitePluginConfig): AstroIntegration {
           }
         })
 
-        // Auto import UnoCSS
-        injectScript('page-ssr', "import 'unocss-hmr-fix';")
+        if (options?.astro?.autoImport ?? true) {
+          // Auto import UnoCSS
+          injectScript('page-ssr', "import 'unocss-hmr-fix';")
+        }
       }
     }
   }

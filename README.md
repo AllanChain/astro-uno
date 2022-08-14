@@ -53,3 +53,17 @@ See `examples/` for detail.
   ```
   UnoCSS expected a space after `<img` but Astro gives `$$addAttribute` part instead, making attributify mode not working well.
   Here we pass modified code with an extra space to UnoCSS for extracting the tokens.
+
+## Extra configs
+
+```ts
+interface UnoIntegrationConfig extends VitePluginConfig {
+  astro?: {
+    /**
+     *  Whether to auto import UnoCSS
+     *  @default true
+     */
+    autoImport?: boolean
+  }
+}
+```
