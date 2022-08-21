@@ -7,7 +7,7 @@ interface UnoIntegrationConfig extends VitePluginConfig {
   astro?: {
     /**
      *  Whether to auto import UnoCSS
-     *  @default true
+     *  @default false
      */
     autoImport?: boolean
   }
@@ -55,9 +55,9 @@ export = function UnoIntegration (options: UnoIntegrationConfig): AstroIntegrati
           }
         })
 
-        if (options?.astro?.autoImport ?? true) {
+        if (options?.astro?.autoImport ?? false) {
           // Auto import UnoCSS
-          injectScript('page-ssr', "import 'unocss-hmr-fix';")
+          injectScript('page-ssr', "import 'uno.css-hmr-fix';")
         }
       }
     }

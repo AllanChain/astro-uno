@@ -30,14 +30,18 @@ export default defineConfig({
   }
 }
 ```
+4. Import UnoCSS in your `.astro` files
+```js
+import 'unocss-hmr-fix'
+```
 
 See `examples/` for detail.
 
 ## What it does
 
-- Creates an alias of `uno.css` and auto import it.
+- Creates an alias of `uno.css` to avoid HMR issues.
 
-  `unocss-hmr-fix` is just an alias of `uno.css`. ~~But the renaming fixes some HMR issues, since Astro treats everything ends with '.css' as a normal CSS file.~~ The HMR issues are solved because Astro has chosen to reload the whole page to get more reliable update since version `1.0.0-rc.1`, so the renaming is not taking any effect. But Astro would [layer in granular updates afterwards](https://github.com/withastro/astro/pull/3932), so I'm just keeping it.
+  `unocss-hmr-fix` is just an alias of `uno.css`. But the renaming fixes some HMR issues, since Astro treats everything ends with '.css' as a normal CSS file.
 
 - Force UnoCSS to run at the SSR phase.
 
@@ -61,7 +65,7 @@ interface UnoIntegrationConfig extends VitePluginConfig {
   astro?: {
     /**
      *  Whether to auto import UnoCSS
-     *  @default true
+     *  @default false
      */
     autoImport?: boolean
   }
