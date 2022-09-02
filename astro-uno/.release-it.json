@@ -1,5 +1,11 @@
 {
+  "npm": {
+    "publishArgs": ["--registry", "https://registry.npmjs.org"]
+  },
   "git": {
     "commitMessage": "chore(release): v${version}"
+  },
+  "hooks": {
+    "after:bump": "auto-changelog -p -o ../CHANGELOG.md"
   }
 }
