@@ -32,8 +32,10 @@ importers:
 
   astro-uno:
     specifiers:
+      astro: ^1.0.0
       unocss: ^0.44.0
     devDependencies:
+      astro: 1.0.5
       unocss: 0.44.7
 
   example:
