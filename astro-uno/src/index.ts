@@ -57,7 +57,7 @@ export = function UnoIntegration (options: UnoIntegrationConfig): AstroIntegrati
 
         if (options?.astro?.autoImport ?? false) {
           // Auto import UnoCSS
-          injectScript('page-ssr', "import 'uno.css-hmr-fix';")
+          injectScript('page-ssr', "import 'unocss-hmr-fix';")
         }
       }
     }
