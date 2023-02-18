@@ -1,5 +1,8 @@
 # Astro UnoCSS Integration
 
+## :warning: Archive Notice
+
+This repository is archived because UnoCSS comes with its own Astro integration ([`unocss/astro`](https://github.com/unocss/unocss/tree/main/packages/astro)) and this third-party integration is no longer needed.
 
 ## Usage
 
